@@ -16,7 +16,7 @@ class App extends Component {
       <Wrapper>
         <Title>Clicky Game!</Title>
         {this.state.data.map(data => (
-          <FriendCard
+          <DataCard
             // removeFriend={this.removeFriend}
             id={data.id}
             key={data.id}
