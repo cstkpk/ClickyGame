@@ -7,9 +7,9 @@ function DataCard(props) {
       <div className="img-container">
         <img alt={props.id} src={props.image} />
       </div>
-      <span onClick={() => props.removeFriend(props.id)} className="remove">
+      {/* <span onClick={() => props.removeFriend(props.id)} className="remove">
         𝘅
-      </span>
+      </span> */}
     </div>
   );
 }
