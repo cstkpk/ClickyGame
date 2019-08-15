@@ -1,15 +1,16 @@
 import React from "react";
-import "./style.css";
+import { Col, Card } from 'react-bootstrap';
+// import "./style.css";
 
 function DataCard(props) {
   return (
-    <div className="card">
-      <div className="img-container">
-        <img alt={props.id} src={props.image} className="card-img-top" 
-        onClick={() => props.checkClicked(props.id)} 
-        />
-      </div>
-    </div>
+    <Col className="col-3">
+        <Card>
+        <Card.Img  alt={props.id} src={props.image} className="card-img-top" 
+            onClick={() => props.checkClicked(props.id)}>
+        </Card.Img>
+        </Card>
+    </Col>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Button, Jumbotron, Container, Row } from 'react-bootstrap';
 import DataCard from "./components/DataCard";
-import Wrapper from "./components/Wrapper";
+// import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import data from "./data.json";
 
@@ -83,8 +84,11 @@ class App extends Component {
   // Map over this.state.data and render a DataCard component for each data object
   render() {
     return (
-      <Wrapper>
+      <Container>
         <Title>Clicky Game! {this.state.score} {this.state.wins}</Title>
+        <Jumbotron>Hello</Jumbotron>
+        <Button>I am a button</Button>
+        <Row>
         {this.state.data.map(data => (
         //   console.log(data),
           <DataCard
@@ -94,7 +98,8 @@ class App extends Component {
             image={data.image}
           />
         ))}
-      </Wrapper>
+        </Row>
+      </Container>
     );
   }
 };
