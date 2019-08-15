@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, Jumbotron, Container, Row } from 'react-bootstrap';
+import { Button, Container, Row } from 'react-bootstrap';
 import DataCard from "./components/DataCard";
+import Jumbo from "./components/Jumbotron";
 // import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
+// import Title from "./components/Title";
 import data from "./data.json";
 
 class App extends Component {
@@ -79,26 +80,46 @@ class App extends Component {
             this.setState({ wins: this.state.wins + 1 });
         }
     };
+
+    resetStats = () => {
+        let data = [...this.state.data];
+        data.forEach(waffles => {
+            waffles.clicked = false
+        })
+        this.setState({
+            wins: 0,
+            score: 0,
+            losses: 0,
+            data
+        })
+        console.log(this.state.data);
+    }
     
 
   // Map over this.state.data and render a DataCard component for each data object
   render() {
     return (
       <Container>
-        <Title>Clicky Game! {this.state.score} {this.state.wins}</Title>
-        <Jumbotron>Hello</Jumbotron>
-        <Button>I am a button</Button>
+        {/* <Title>Clicky Game! {this.state.score} {this.state.wins}</Title> */}
+        <Jumbo 
+        score={this.state.score}
+        wins={this.state.wins}
+        losses={this.state.losses}
+        />
         <Row>
         {this.state.data.map(data => (
-        //   console.log(data),
-          <DataCard
+            //   console.log(data),
+            <DataCard
             checkClicked={this.checkClicked}
             id={data.id}
             key={data.id}
             image={data.image}
-          />
-        ))}
+            />
+            ))}
         </Row>
+        <Button
+        onClick={this.resetStats}
+        >I quit!! Reset my stats.</Button>
       </Container>
     );
   }
