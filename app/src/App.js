@@ -56,11 +56,16 @@ class App extends Component {
                         this.checkScore();
                     } else {
                         console.log("GAME OVER");
+                        let data = [...this.state.data];
+                        data.forEach(waffles => {
+                            waffles.clicked = false
+                        })
                         this.setState({ 
                             score: 0,
-                            losses: this.state.losses + 1
+                            losses: this.state.losses + 1,
+                            data
                         });
-                    
+                        console.log(this.state.data);
                     }
                 } 
             })
