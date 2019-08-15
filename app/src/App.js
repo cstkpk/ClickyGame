@@ -7,7 +7,10 @@ import data from "./data.json";
 class App extends Component {
     // Setting this.state.data to the data json array
     state = {
-      data
+      data,
+      score: 0,
+      wins: 0,
+      losses: 0
     };
 
     shuffleArray = arr => {
@@ -21,33 +24,42 @@ class App extends Component {
         }
     }
 
-    checkClicked = id => { // How to refer to the "clicked" property through id?
+    checkClicked = id => { 
         // For the data with the selected id, set "clicked" boolean to true
-        // console.log(this.state.data);
-        console.log(id);
-        var data = [...this.state.data];
-        data.forEach(waffles => {
-            // console.log(waffles);
-            if (waffles.id === id) {
-                if (!waffles.clicked) {
-                    waffles.clicked = true;
-                    console.log("HELLO");
-                } else {
-                    console.log("GAME OVER");
-                }
-            } 
-        })
-        this.shuffleArray(data);
-        // Set this.state.data equal to the new data array
-        this.setState({ data });
-        console.log(this.state.data);
+        if (this.state.score <= 4) {
+            console.log(id);
+            let data = [...this.state.data];
+            data.forEach(waffles => {
+                if (waffles.id === id) {
+                    if (!waffles.clicked) {
+                        waffles.clicked = true;
+                        console.log("HELLO");
+                        this.setState({ score: this.state.score + 1 });
+                        console.log(`Your score: ${this.state.score}`);
+                    } else {
+                        console.log("GAME OVER");
+                        this.setState({ score: 0 });
+                        console.log(`Your score: ${this.state.score}`);
+                    }
+                } 
+            })
+            this.shuffleArray(data);
+            // Set this.state.data equal to the new data array
+            this.setState({ data });
+            console.log(this.state.data);
+        }
+        if (this.state.score === 4) { // This isn't the right spot for this. Needs to be nested--but WHERE??
+            // alert("YOU WIN");
+            this.setState({ wins: this.state.wins + 1 })
+        }
     };
+    
 
   // Map over this.state.data and render a DataCard component for each data object
   render() {
     return (
       <Wrapper>
-        <Title>Clicky Game!</Title>
+        <Title>Clicky Game! {this.state.score} {this.state.wins}</Title>
         {this.state.data.map(data => (
         //   console.log(data),
           <DataCard
