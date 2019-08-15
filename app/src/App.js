@@ -24,9 +24,20 @@ class App extends Component {
         }
     }
 
+    checkScore = () => {
+        if (this.state.score < 3) {
+            this.setState({ wins: this.state.wins })
+        } else {
+            this.setState({
+                wins: this.state.wins + 1,
+                score: 0
+            })
+        };
+    };
+
     checkClicked = id => { 
         // For the data with the selected id, set "clicked" boolean to true
-        if (this.state.score <= 4) {
+        if (this.state.score < 4) {
             console.log(id);
             let data = [...this.state.data];
             data.forEach(waffles => {
@@ -36,6 +47,7 @@ class App extends Component {
                         console.log("HELLO");
                         this.setState({ score: this.state.score + 1 });
                         console.log(`Your score: ${this.state.score}`);
+                        this.checkScore();
                     } else {
                         console.log("GAME OVER");
                         this.setState({ score: 0 });
@@ -48,7 +60,7 @@ class App extends Component {
             this.setState({ data });
             console.log(this.state.data);
         }
-        if (this.state.score === 4) { // This isn't the right spot for this. Needs to be nested--but WHERE??
+        if (this.state.score === 4) { 
             // alert("YOU WIN");
             this.setState({ wins: this.state.wins + 1 })
         }
