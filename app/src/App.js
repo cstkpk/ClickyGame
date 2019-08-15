@@ -10,26 +10,51 @@ class App extends Component {
       data
     };
 
-    shuffleData = id => { // How to refer to the "clicked" property through id?
+    shuffleArray = arr => {
+        let i = arr.length - 1;
+        while (i > 0) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i--;
+        }
+    }
+
+    checkClicked = id => { // How to refer to the "clicked" property through id?
         // For the data with the selected id, set "clicked" boolean to true
-        let data = this.state.data.clicked = true;
-        console.log("Shuffling!");
-        // Set this.state.friends equal to the new friends array
+        // console.log(this.state.data);
+        console.log(id);
+        var data = [...this.state.data];
+        data.forEach(waffles => {
+            // console.log(waffles);
+            if (waffles.id === id) {
+                if (!waffles.clicked) {
+                    waffles.clicked = true;
+                    console.log("HELLO");
+                } else {
+                    console.log("GAME OVER");
+                }
+            } 
+        })
+        this.shuffleArray(data);
+        // Set this.state.data equal to the new data array
         this.setState({ data });
+        console.log(this.state.data);
     };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  // Map over this.state.data and render a DataCard component for each data object
   render() {
     return (
       <Wrapper>
         <Title>Clicky Game!</Title>
         {this.state.data.map(data => (
+        //   console.log(data),
           <DataCard
-            // removeFriend={this.removeFriend}
+            checkClicked={this.checkClicked}
             id={data.id}
             key={data.id}
             image={data.image}
-            shuffleData={this.shuffleData}
           />
         ))}
       </Wrapper>
@@ -39,7 +64,7 @@ class App extends Component {
 
 export default App;
 
-// When user clicks an image, we want to trigger shuffleData(id);
-// shuffleData will check the clicked image:
+// When user clicks an image, we want to trigger checkClicked(id);
+// checkClicked will check the clicked image:
     // If the clicked image currently has a "clicked" boolean of false, it will change it to true and re-shuffle the images
     // If the clicked image currently has a "clicked" boolean of true, it will end/restart the game

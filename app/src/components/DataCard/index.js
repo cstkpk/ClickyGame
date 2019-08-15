@@ -6,7 +6,7 @@ function DataCard(props) {
     <div className="card">
       <div className="img-container">
         <img alt={props.id} src={props.image} className="card-img-top" 
-        onClick={() => props.shuffleData(props.id)} 
+        onClick={() => props.checkClicked(props.id)} 
         />
       </div>
     </div>
