@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Button, Container, Row } from 'react-bootstrap';
 import DataCard from "./components/DataCard";
 import Jumbo from "./components/Jumbotron";
-// import Wrapper from "./components/Wrapper";
-// import Title from "./components/Title";
 import data from "./data.json";
 
 class App extends Component {
@@ -100,7 +98,6 @@ class App extends Component {
   render() {
     return (
       <Container>
-        {/* <Title>Clicky Game! {this.state.score} {this.state.wins}</Title> */}
         <Jumbo 
         score={this.state.score}
         wins={this.state.wins}
@@ -108,7 +105,6 @@ class App extends Component {
         />
         <Row>
         {this.state.data.map(data => (
-            //   console.log(data),
             <DataCard
             checkClicked={this.checkClicked}
             id={data.id}
@@ -126,8 +122,3 @@ class App extends Component {
 };
 
 export default App;
-
-// When user clicks an image, we want to trigger checkClicked(id);
-// checkClicked will check the clicked image:
-    // If the clicked image currently has a "clicked" boolean of false, it will change it to true and re-shuffle the images
-    // If the clicked image currently has a "clicked" boolean of true, it will end/restart the game

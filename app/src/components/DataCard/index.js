@@ -1,12 +1,12 @@
 import React from "react";
 import { Col, Card } from 'react-bootstrap';
-// import "./style.css";
+import "./style.css";
 
 function DataCard(props) {
   return (
-    <Col className="col-3">
+    <Col sm={6} md={3}>
         <Card>
-        <Card.Img  alt={props.id} src={props.image} className="card-img-top" 
+        <Card.Img alt={props.id} src={props.image} className="card-img" 
             onClick={() => props.checkClicked(props.id)}>
         </Card.Img>
         </Card>
