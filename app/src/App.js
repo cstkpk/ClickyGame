@@ -26,12 +26,19 @@ class App extends Component {
 
     checkScore = () => {
         if (this.state.score < 3) {
-            this.setState({ wins: this.state.wins })
+            this.setState({ wins: this.state.wins });
         } else {
+            console.log("You win!");
+            let data = [...this.state.data];
+            data.forEach(waffles => {
+                waffles.clicked = false;
+            })
             this.setState({
                 wins: this.state.wins + 1,
-                score: 0
-            })
+                score: 0,
+                data
+            });
+            console.log(this.state.data);
         };
     };
 
@@ -44,14 +51,16 @@ class App extends Component {
                 if (waffles.id === id) {
                     if (!waffles.clicked) {
                         waffles.clicked = true;
-                        console.log("HELLO");
+                        console.log("Got one!");
                         this.setState({ score: this.state.score + 1 });
-                        console.log(`Your score: ${this.state.score}`);
                         this.checkScore();
                     } else {
                         console.log("GAME OVER");
-                        this.setState({ score: 0 });
-                        console.log(`Your score: ${this.state.score}`);
+                        this.setState({ 
+                            score: 0,
+                            losses: this.state.losses + 1
+                        });
+                    
                     }
                 } 
             })
@@ -61,8 +70,7 @@ class App extends Component {
             console.log(this.state.data);
         }
         if (this.state.score === 4) { 
-            // alert("YOU WIN");
-            this.setState({ wins: this.state.wins + 1 })
+            this.setState({ wins: this.state.wins + 1 });
         }
     };
     
