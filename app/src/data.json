@@ -1,22 +1,74 @@
 [
     {
         "id": 1,
+        "name": "carrots",
         "image": "https://nutritionfacts.org/app/uploads/2019/01/carrots-3399806_1920.jpg",
         "clicked": false
     },
     {
         "id": 2,
-        "image": "https://images-na.ssl-images-amazon.com/images/I/71PQPAlw%2BuL._SX425_.jpg",
+        "name": "cucumbers",
+        "image": "https://usercontent1.hubstatic.com/14461774.jpg",
         "clicked": false
     },
     {
         "id": 3,
+        "name": "radishes",
         "image": "https://smhttp-ssl-17653.nexcesscdn.net/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/2/8/280_radish_sparkler-web.jpg",
         "clicked": false
     },
     {
         "id": 4,
+        "name": "cauliflower",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/81hfKOtGQsL._SY355_.jpg",
+        "clicked": false
+    },
+    {
+        "id": 5,
+        "name": "spinach",
         "image": "https://parkseed.com/images/xxl/05660-pk-p1.jpg",
+        "clicked": false
+    },
+    {
+        "id": 6,
+        "name": "leeks",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd555qh_I88wkUFSsueXcMm04LOyeG4J_kClf3KIcrjt-FCn_j9Q",
+        "clicked": false 
+    },
+    {
+        "id": 7,
+        "name": "pepper",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/71ZDca5E1TL._SY355_.jpg",
+        "clicked": false
+    },
+    {
+        "id": 8,
+        "name": "rutabaga",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/81lDc%2BRJqAL._SX466_.jpg",
+        "clicked": false
+    },
+    {
+        "id": 9,
+        "name": "garlic",
+        "image": "https://www.chatelaine.com/wp-content/uploads/2014/01/head-of-garlic-e1389892676591.jpg",
+        "clicked": false
+    },
+    {
+        "id": 10,
+        "name": "broccoli",
+        "image": "https://www.chatelaine.com/wp-content/uploads/2009/06/jamie-oliver-broccoli-salad-square.jpg",
+        "clicked": false
+    },
+    {
+        "id": 11,
+        "name": "squash",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiGvtRa274JIC7mlbZdFfzOsxT582WVcYh_GG03ARxRcd6uG_UWQ",
+        "clicked": false
+    },
+    {
+        "id": 12,
+        "name": "kale",
+        "image": "https://nutritionfacts.org/app/uploads/2018/08/1Priority-Presentation.014.jpeg",
         "clicked": false
     }
 ]
