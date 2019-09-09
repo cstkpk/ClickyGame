@@ -142,7 +142,6 @@ class App extends Component {
         onHide={this.modalClose}
         onClick={this.modalClose}
         winStatus={this.state.winStatus}
-        score={this.state.score}
         />
       </Container>
     );
