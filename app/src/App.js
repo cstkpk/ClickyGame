@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Container, Row } from 'react-bootstrap';
 import DataCard from "./components/DataCard";
 import Jumbo from "./components/Jumbotron";
+import StatusModal from "./components/Modals";
 import data from "./data.json";
 
 class App extends Component {
@@ -10,7 +11,9 @@ class App extends Component {
       data,
       score: 0,
       wins: 0,
-      losses: 0
+      losses: 0,
+      winStatus: "Testing",
+      showModal: false
     };
 
     shuffleArray = arr => {
@@ -24,6 +27,19 @@ class App extends Component {
         }
     }
 
+    // Close modal function
+    modalClose = () => {
+        this.setState({
+            showModal: false
+        });
+    };
+    // Open modal function
+    modalOpen = () => {
+        this.setState({
+            showModal: true
+        });
+    };
+
     checkScore = () => {
         if (this.state.score < 11) {
             this.setState({ wins: this.state.wins });
@@ -36,9 +52,11 @@ class App extends Component {
             this.setState({
                 wins: this.state.wins + 1,
                 score: 0,
+                winStatus: "Ding ding we have a winner!",
                 data
             });
             console.log(this.state.data);
+            this.modalOpen();
         };
     };
 
@@ -63,9 +81,11 @@ class App extends Component {
                         this.setState({ 
                             score: 0,
                             losses: this.state.losses + 1,
+                            winStatus: "Whomp whomp you lost",
                             data
                         });
                         console.log(this.state.data);
+                        this.modalOpen();
                     }
                 } 
             })
@@ -90,6 +110,7 @@ class App extends Component {
             losses: 0,
             data
         })
+        this.modalOpen();
         console.log(this.state.data);
     }
     
@@ -116,6 +137,13 @@ class App extends Component {
         <Button
         onClick={this.resetStats}
         >I quit!! Reset my stats.</Button>
+        <StatusModal 
+        show={this.state.showModal}
+        onHide={this.modalClose}
+        onClick={this.modalClose}
+        winStatus={this.state.winStatus}
+        score={this.state.score}
+        />
       </Container>
     );
   }
