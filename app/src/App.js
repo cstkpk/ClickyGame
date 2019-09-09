@@ -25,7 +25,7 @@ class App extends Component {
     }
 
     checkScore = () => {
-        if (this.state.score < 3) {
+        if (this.state.score < 11) {
             this.setState({ wins: this.state.wins });
         } else {
             console.log("You win!");
@@ -44,7 +44,7 @@ class App extends Component {
 
     checkClicked = id => { 
         // For the data with the selected id, set "clicked" boolean to true
-        if (this.state.score < 4) {
+        if (this.state.score < 12) {
             console.log(id);
             let data = [...this.state.data];
             data.forEach(waffles => {
@@ -74,7 +74,7 @@ class App extends Component {
             this.setState({ data });
             console.log(this.state.data);
         }
-        if (this.state.score === 4) { 
+        if (this.state.score === 12) { 
             this.setState({ wins: this.state.wins + 1 });
         }
     };

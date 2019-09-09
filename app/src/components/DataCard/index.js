@@ -5,7 +5,7 @@ import "./style.css";
 function DataCard(props) {
   return (
     <Col sm={6} md={3}>
-        <Card className="mb-2">
+        <Card className="mb-4">
         <Card.Img alt={props.id} src={props.image} className="card-img" 
             onClick={() => props.checkClicked(props.id)}>
         </Card.Img>
