@@ -3,12 +3,13 @@ import { Button, Container, Row } from 'react-bootstrap';
 import DataCard from "./components/DataCard";
 import Jumbo from "./components/Jumbotron";
 import StatusModal from "./components/Modals";
-import data from "./data.json";
+import data1 from "./data.json";
+import data2 from "./data2.json"
 
 class App extends Component {
     // Setting this.state.data to the data json array
     state = {
-      data,
+      data: data1,
       score: 0,
       wins: 0,
       losses: 0,
@@ -29,9 +30,17 @@ class App extends Component {
 
     // Close modal function
     modalClose = () => {
-        this.setState({
-            showModal: false
-        });
+        if (this.state.winStatus === "Ding ding we have a winner!") {
+            this.setState({
+                showModal: false,
+                data: data2
+            });
+        }
+        else {
+            this.setState({
+                showModal: false
+            });
+        };
     };
     // Open modal function
     modalOpen = () => {
@@ -53,8 +62,9 @@ class App extends Component {
                 wins: this.state.wins + 1,
                 score: 0,
                 winStatus: "Ding ding we have a winner!",
-                data
-            });
+                // data: data2
+            })
+            console.log("Winner!");
             console.log(this.state.data);
             this.modalOpen();
         };
