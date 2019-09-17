@@ -13,8 +13,10 @@ class App extends Component {
       score: 0,
       wins: 0,
       losses: 0,
-      winStatus: "Testing",
-      showModal: false
+      winStatus: "",
+      showModal: false,
+      // Level state so that data arrays can be accessed in modalClose function via number of wins and set as the new data state
+      level: [data1, data2] 
     };
 
     shuffleArray = arr => {
@@ -33,7 +35,8 @@ class App extends Component {
         if (this.state.winStatus === "Ding ding we have a winner!") {
             this.setState({
                 showModal: false,
-                data: data2
+                // Setting new images for new level, using wins as the index of the level array
+                data: this.state.level[this.state.wins]
             });
         }
         else {
