@@ -3,9 +3,10 @@ import { Button, Container, Row } from 'react-bootstrap';
 import DataCard from "./components/DataCard";
 import Jumbo from "./components/Jumbotron";
 import StatusModal from "./components/Modals";
-import data1 from "./data.json";
-import data2 from "./data2.json";
-import data3 from "./data3.json";
+import data1 from "./data/data.json";
+import data2 from "./data/data2.json";
+import data3 from "./data/data3.json";
+import data4 from "./data/data4.json";
 
 class App extends Component {
     // Setting this.state.data to the data json array
@@ -17,7 +18,7 @@ class App extends Component {
       winStatus: "",
       showModal: false,
       // Level state so that data arrays can be accessed in modalClose function via number of wins and set as the new data state
-      level: [data1, data2, data3] 
+      level: [data1, data2, data3, data4] 
     };
 
     shuffleArray = arr => {
