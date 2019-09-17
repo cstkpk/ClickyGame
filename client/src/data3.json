@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "birthday cake",
+        "image": "https://www.handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg",
+        "clicked": false
+    },
+    {
+        "id": 2,
+        "name": "rainbow cake",
+        "image": "https://cdn-image.foodandwine.com/sites/default/files/1499783284/rainbow-cake-XL-RECIPE2017.jpg",
+        "clicked": false
+    },
+    {
+        "id": 3,
+        "name": "mint patty cake",
+        "image": "https://tmbidigitalassetsazure.blob.core.windows.net/secure/RMS/attachments/37/1200x1200/Mint-Patty-Cake_exps140673_CMT2426390C08_17_2b_RMS.jpg",
+        "clicked": false
+    },
+    {
+        "id": 4,
+        "name": "chocolate candy cake",
+        "image": "http://www.pamperedchef.com/iceberg/com/recipe/1125065-lg.jpg",
+        "clicked": false
+    },
+    {
+        "id": 5,
+        "name": "nutella cake",
+        "image": "https://livforcake.com/wp-content/uploads/2019/05/nutella-cake-thumb-1.jpg",
+        "clicked": false
+    },
+    {
+        "id": 6,
+        "name": "confetti cake",
+        "image": "https://cdn.shopify.com/s/files/1/0034/7550/5225/products/Birthday-Cake-6in-Overhead-1_b5c98e89-a1e6-4fae-a3a7-ba0dda3e5c24_800x.jpg?v=1554438198",
+        "clicked": false 
+    },
+    {
+        "id": 7,
+        "name": "black forest cake",
+        "image": "https://livforcake.com/wp-content/uploads/2017/07/black-forest-cake-thumb-500x500.jpg",
+        "clicked": false
+    },
+    {
+        "id": 8,
+        "name": "smores cake",
+        "image": "https://ashleemarie.com/wp-content/uploads/2016/08/peanut-butter-smore-cookie-cake.jpg",
+        "clicked": false
+    },
+    {
+        "id": 9,
+        "name": "red velvet cake",
+        "image": "https://www.dessertfortwo.com/wp-content/uploads/2019/02/red-velvet-cake-recipe-3-480x480.jpg",
+        "clicked": false
+    },
+    {
+        "id": 10,
+        "name": "chocolate cake",
+        "image": "https://www.lilcookie.com/wp-content/uploads/2018/11/American_chocolate_cake3-square.jpg",
+        "clicked": false
+    },
+    {
+        "id": 11,
+        "name": "vanilla cake",
+        "image": "https://livforcake.com/wp-content/uploads/2017/06/vanilla-cake-thumb-500x500.jpg",
+        "clicked": false
+    },
+    {
+        "id": 12,
+        "name": "cookies n cream cake",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC3srPpkU9nvuBv3XV7ykhEE4j_6CIvOJOAUZrZK4pIuMx59hU",
+        "clicked": false
+    }
+]
