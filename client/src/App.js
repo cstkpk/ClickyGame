@@ -16,6 +16,7 @@ class App extends Component {
       wins: 0,
       losses: 0,
       winStatus: "",
+      btnText: "",
       showModal: false,
       // Level state so that data arrays can be accessed in modalClose function via number of wins and set as the new data state
       // TODO: Need to figure out last level:
@@ -72,7 +73,7 @@ class App extends Component {
                 wins: this.state.wins + 1,
                 score: 0,
                 winStatus: "Ding ding we have a winner!",
-                // data: data2
+                btnText: "Next level!"
             })
             console.log("Winner!");
             console.log(this.state.data);
@@ -102,7 +103,8 @@ class App extends Component {
                             score: 0,
                             losses: this.state.losses + 1,
                             winStatus: "Whomp whomp you lost",
-                            data
+                            btnText: "Try again!"
+                            // data
                         });
                         console.log(this.state.data);
                         this.modalOpen();
@@ -153,7 +155,7 @@ class App extends Component {
             key={data.id}
             image={data.image}
             />
-            ))}
+        ))}
         </Row>
         <Button
         onClick={this.resetStats}
@@ -163,6 +165,7 @@ class App extends Component {
         onHide={this.modalClose}
         onClick={this.modalClose}
         winStatus={this.state.winStatus}
+        btnText={this.state.btnText}
         />
       </Container>
     );

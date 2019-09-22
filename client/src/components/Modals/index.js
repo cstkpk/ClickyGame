@@ -13,7 +13,7 @@ function StatusModal(props) {
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={props.onClick}>Play again!</Button>
+                <Button variant="secondary" onClick={props.onClick} className="btn-block">{props.btnText}</Button>
             </Modal.Footer>
         </Modal>
     );
