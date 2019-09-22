@@ -139,7 +139,7 @@ class App extends Component {
   // Map over this.state.data and render a DataCard component for each data object
   render() {
     return (
-      <Container>
+      <Container fluid={false}>
         <Jumbo 
         score={this.state.score}
         wins={this.state.wins}
