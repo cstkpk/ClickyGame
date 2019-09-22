@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Container, Row } from 'react-bootstrap';
 import DataCard from "./components/DataCard";
 import Jumbo from "./components/Jumbotron";
-import StatusModal from "./components/Modals";
+import { StatusModal, EndModal } from "./components/Modals";
 import data1 from "./data/data.json";
 import data2 from "./data/data2.json";
 import data3 from "./data/data3.json";
@@ -18,6 +18,7 @@ class App extends Component {
       winStatus: "",
       btnText: "",
       showModal: false,
+      showModalW: false,
       // Level state so that data arrays can be accessed in modalClose function via number of wins and set as the new data state
       // TODO: Need to figure out last level:
         // As of now, React throws an error after you win round 4 because the array ends and it has no data to display
@@ -35,7 +36,7 @@ class App extends Component {
         }
     }
 
-    // Close modal function
+    // Close status modal function
     modalClose = () => {
         if (this.state.winStatus === "Ding ding we have a winner!") {
             this.setState({
@@ -53,10 +54,24 @@ class App extends Component {
             });
         };
     };
-    // Open modal function
+    // Close win modal function
+    modalCloseW = () => {
+        this.setState({
+            showModalW: false,
+            data: data1
+        });
+    };
+
+    // Open status modal function
     modalOpen = () => {
         this.setState({
             showModal: true
+        });
+    };
+    // Open win modal function
+    modalOpenW = () => {
+        this.setState({
+            showModalW: true
         });
     };
 
@@ -69,15 +84,22 @@ class App extends Component {
             data.forEach(waffles => {
                 waffles.clicked = false;
             })
-            this.setState({
-                wins: this.state.wins + 1,
-                score: 0,
-                winStatus: "Ding ding we have a winner!",
-                btnText: "Next level!"
-            })
-            console.log("Winner!");
-            console.log(this.state.data);
-            this.modalOpen();
+            if (this.state.wins < 1) {
+                this.setState({
+                    wins: this.state.wins + 1,
+                    score: 0,
+                    winStatus: "Ding ding we have a winner!",
+                    btnText: "Next level!"
+                })
+                this.modalOpen();
+            }
+            else {
+                this.setState({
+                    wins: 0,
+                    score: 0,
+                })
+                this.modalOpenW();
+            }
         };
     };
 
@@ -166,6 +188,11 @@ class App extends Component {
         onClick={this.modalClose}
         winStatus={this.state.winStatus}
         btnText={this.state.btnText}
+        />
+        <EndModal
+        show={this.state.showModalW}
+        onHide={this.modalCloseW}
+        onClick={this.modalCloseW}
         />
       </Container>
     );

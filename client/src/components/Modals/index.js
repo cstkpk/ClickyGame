@@ -19,4 +19,25 @@ function StatusModal(props) {
     );
 };
 
-export default StatusModal;
+function EndModal(props) {
+    return (
+        <Modal show={props.show} onHide={props.onHide}>
+            <Modal.Header closeButton>
+                <Modal.Title>You've won the game!</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+                <p>You're a superstar!</p>
+            </Modal.Body>
+
+            <Modal.Footer>
+                <Button variant="secondary" onClick={props.onClick} className="btn-block">Start Over</Button>
+            </Modal.Footer>
+        </Modal>
+    )
+}
+
+export {
+     StatusModal,
+     EndModal
+};
