@@ -84,7 +84,7 @@ class App extends Component {
             data.forEach(waffles => {
                 waffles.clicked = false;
             })
-            if (this.state.wins < 1) {
+            if (this.state.wins < 3) {
                 this.setState({
                     wins: this.state.wins + 1,
                     score: 0,
@@ -96,6 +96,7 @@ class App extends Component {
             else {
                 this.setState({
                     wins: 0,
+                    losses: 0,
                     score: 0,
                 })
                 this.modalOpenW();
