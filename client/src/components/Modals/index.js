@@ -31,7 +31,7 @@ function EndModal(props) {
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={props.onClick} className="btn-block">Start Over</Button>
+                <Button variant="secondary" onClick={props.onClick} className="btn-block">Play Again!</Button>
             </Modal.Footer>
         </Modal>
     )

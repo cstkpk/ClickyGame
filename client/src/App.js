@@ -20,8 +20,6 @@ class App extends Component {
       showModal: false,
       showModalW: false,
       // Level state so that data arrays can be accessed in modalClose function via number of wins and set as the new data state
-      // TODO: Need to figure out last level:
-        // As of now, React throws an error after you win round 4 because the array ends and it has no data to display
       level: [data1, data2, data3, data4] 
     };
 
@@ -42,9 +40,6 @@ class App extends Component {
             this.setState({
                 showModal: false,
                 // Setting new images for new level, using wins as the index of the level array
-                // TODO: (Continued from above):
-                    // Option 1: Set a conditional so that if the number of wins exceeds the length of the levels array, display something else?
-                    // Option 2: Change the effect of clicking/closing the modal 
                 data: this.state.level[this.state.wins]
             });
         }
@@ -154,7 +149,8 @@ class App extends Component {
             score: 0,
             losses: 0,
             winStatus: "Clean slate for you!",
-            data
+            btnText: "Start over!",
+            data: data1
         })
         this.modalOpen();
         console.log(this.state.data);
@@ -181,8 +177,10 @@ class App extends Component {
         ))}
         </Row>
         <Button
+        className="btn-block mb-4"
+        variant="dark"
         onClick={this.resetStats}
-        >I quit!! Reset my stats.</Button>
+        >I quit!! Let's start the whole game over.</Button>
         <StatusModal 
         show={this.state.showModal}
         onHide={this.modalClose}
