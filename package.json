@@ -1,5 +1,5 @@
 {
-  "name": "ClickyGame",
+  "name": "clicky-game",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,5 +24,14 @@
   "bugs": {
     "url": "https://github.com/cstkpk/ClickyGame/issues"
   },
-  "homepage": "https://github.com/cstkpk/ClickyGame#readme"
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.18.7"
+  },
+  "homepage": "https://github.com/cstkpk/ClickyGame#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "morgan": "^1.9.1"
+  }
 }
