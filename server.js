@@ -1,13 +1,13 @@
 const express = require("express");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Define middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets for Heroku
-if (process.env.NODE_ENV === production) {
+if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 // Use morgan if in dev environment
