@@ -7,6 +7,7 @@ import data1 from "./data/data.json";
 import data2 from "./data/data2.json";
 import data3 from "./data/data3.json";
 import data4 from "./data/data4.json";
+import API from "./utils/API";
 
 class App extends Component {
     // Setting this.state.data to the data json array
@@ -20,7 +21,9 @@ class App extends Component {
       showModal: false,
       showModalW: false,
       // Level state so that data arrays can be accessed in modalClose function via number of wins and set as the new data state
-      level: [data1, data2, data3, data4] 
+      level: [data1, data2, data3, data4],
+      // GIPHY API results
+      giphy: {}
     };
 
     shuffleArray = arr => {
@@ -153,8 +156,17 @@ class App extends Component {
             data: data1
         })
         this.modalOpen();
-        console.log(this.state.data);
-    }
+        console.log(process.env);
+        this.findGIF();
+        console.log(this.state.giphy);
+        // console.log(this.state.data);
+    };
+
+    findGIF = () => {
+        API.search()
+            .then(res => this.setState({ giphy: res.data }))
+            .catch(err => console.log(err));
+    };
     
 
   // Map over this.state.data and render a DataCard component for each data object
@@ -187,6 +199,7 @@ class App extends Component {
         onClick={this.modalClose}
         winStatus={this.state.winStatus}
         btnText={this.state.btnText}
+        // gif={this.state.giphy.data[0].images.fixed_height.URL}
         />
         <EndModal
         show={this.state.showModalW}
