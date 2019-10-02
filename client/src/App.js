@@ -164,6 +164,7 @@ class App extends Component {
     // N.B. Something isn't quite right with this function. The console logs above show an empty state until the second time the rest button is clicked
     // Have tried putting the console logs in a .then, but the same thing is happening there too, so maybe it's not an issue of asynchronicity?
     // Need to fix this though
+    // *** HOWEVER *** the image url as state still passes properly to the modal as a prop and shows up on first click
     findGIF = () => {
         API.search()
             // N.B. I'm setting the state as the specific url because for some reason, I'm having trouble accessing any more than one layer into the giphy state I've set
@@ -207,7 +208,7 @@ class App extends Component {
         onClick={this.modalClose}
         winStatus={this.state.winStatus}
         btnText={this.state.btnText}
-        // gif={this.state.giphy.data[0].images.fixed_height.URL}
+        gif={this.state.giphy.url}
         />
         <EndModal
         show={this.state.showModalW}

@@ -10,6 +10,7 @@ function StatusModal(props) {
 
             <Modal.Body>
                 <p>Isn't this fun?</p>
+                <img src={props.gif} alt="test"></img>
             </Modal.Body>
 
             <Modal.Footer>
