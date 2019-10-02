@@ -125,7 +125,6 @@ class App extends Component {
                             losses: this.state.losses + 1,
                             winStatus: "Whomp whomp you lost",
                             btnText: "Try again!"
-                            // data
                         });
                         console.log(this.state.data);
                         this.modalOpen();
@@ -155,19 +154,28 @@ class App extends Component {
             btnText: "Start over!",
             data: data1
         })
-        this.modalOpen();
-        console.log(process.env);
         this.findGIF();
+        this.modalOpen();
         console.log(this.state.giphy);
-        // console.log(this.state.data);
+        console.log("*************");
+        console.log(this.state.giphy.url);
     };
 
+    // N.B. Something isn't quite right with this function. The console logs above show an empty state until the second time the rest button is clicked
+    // Have tried putting the console logs in a .then, but the same thing is happening there too, so maybe it's not an issue of asynchronicity?
+    // Need to fix this though
     findGIF = () => {
         API.search()
-            .then(res => this.setState({ giphy: res.data }))
+            // N.B. I'm setting the state as the specific url because for some reason, I'm having trouble accessing any more than one layer into the giphy state I've set
+            // ^^ No idea why. Need to look into this.
+            .then(res => this.setState({ giphy: res.data.data[0].images.fixed_height }))
+            // .then(
+            //     console.log(this.state.giphy),
+            //     console.log("*************"),
+            //     console.log(this.state.giphy.url)
+            // )
             .catch(err => console.log(err));
     };
-    
 
   // Map over this.state.data and render a DataCard component for each data object
   render() {
