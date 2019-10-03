@@ -7,6 +7,8 @@ import data1 from "./data/data.json";
 import data2 from "./data/data2.json";
 import data3 from "./data/data3.json";
 import data4 from "./data/data4.json";
+import modalDefault1 from "./assets/images/carrot.gif";
+import modalDefault2 from "./assets/images/win.gif";
 import API from "./utils/API";
 
 class App extends Component {
@@ -102,7 +104,7 @@ class App extends Component {
                     losses: 0,
                     score: 0,
                 })
-                this.findGIF("goat");
+                this.findGIF("win");
                 this.modalOpenW();
             }
         };
@@ -218,13 +220,13 @@ class App extends Component {
             onClick={this.modalClose}
             winStatus={this.state.winStatus}
             btnText={this.state.btnText}
-            gif={this.state.giphy.url}
+            gif={this.state.giphy.url || modalDefault1}
         />
         <EndModal
             show={this.state.showModalW}
             onHide={this.modalCloseW}
             onClick={this.modalCloseW}
-            gif={this.state.giphy.url}
+            gif={this.state.giphy.url || modalDefault2}
         />
       </Container>
     );
