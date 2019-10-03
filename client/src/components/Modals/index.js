@@ -29,6 +29,7 @@ function EndModal(props) {
 
             <Modal.Body>
                 <p>You're a superstar!</p>
+                <img src={props.gif} alt="test"></img>
             </Modal.Body>
 
             <Modal.Footer>
