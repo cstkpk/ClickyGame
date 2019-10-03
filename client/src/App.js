@@ -102,7 +102,7 @@ class App extends Component {
                     losses: 0,
                     score: 0,
                 })
-                this.findGIF("winner");
+                this.findGIF("goat");
                 this.modalOpenW();
             }
         };
@@ -162,7 +162,8 @@ class App extends Component {
             btnText: "Start over!",
             data: data1
         })
-        this.findGIF("carrots");
+        const topicArr = ["carrots", "broccoli", "cucumber"]
+        this.findGIF(topicArr[Math.floor(Math.random() * topicArr.length)]);
         this.modalOpen();
         // console.log(this.state.giphy);
         // console.log("*************");
@@ -177,7 +178,8 @@ class App extends Component {
         API.search(topic)
             // N.B. I'm setting the state as the specific url because for some reason, I'm having trouble accessing any more than one layer into the giphy state I've set
             // ^^ No idea why. Need to look into this.
-            .then(res => this.setState({ giphy: res.data.data[0].images.fixed_height }))
+            // .then(res => this.setState({ giphy: res.data.data[0].images.fixed_height }))
+            .then(res => this.setState({ giphy: res.data.data[Math.floor(Math.random() * 10)].images.fixed_height }))
             .then(
                 console.log(this.state.giphy),
                 console.log("*************"),
