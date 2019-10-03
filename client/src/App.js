@@ -161,12 +161,12 @@ class App extends Component {
         console.log(this.state.giphy.url);
     };
 
-    // N.B. Something isn't quite right with this function. The console logs above show an empty state until the second time the rest button is clicked
+    // N.B. The console logs above show an empty state until the second time the rest button is clicked
     // Have tried putting the console logs in a .then, but the same thing is happening there too, so maybe it's not an issue of asynchronicity?
-    // Need to fix this though
     // *** HOWEVER *** the image url as state still passes properly to the modal as a prop and shows up on first click
+    // ^^ I think this is just a weird React thing that happens with console.logs
     findGIF = () => {
-        API.search()
+        API.search("carrots")
             // N.B. I'm setting the state as the specific url because for some reason, I'm having trouble accessing any more than one layer into the giphy state I've set
             // ^^ No idea why. Need to look into this.
             .then(res => this.setState({ giphy: res.data.data[0].images.fixed_height }))
@@ -183,9 +183,9 @@ class App extends Component {
     return (
       <Container fluid={false}>
         <Jumbo 
-        score={this.state.score}
-        wins={this.state.wins}
-        losses={this.state.losses}
+            score={this.state.score}
+            wins={this.state.wins}
+            losses={this.state.losses}
         />
         <Row>
         {this.state.data.map(data => (
@@ -198,22 +198,22 @@ class App extends Component {
         ))}
         </Row>
         <Button
-        className="btn-block mb-4"
-        variant="dark"
-        onClick={this.resetStats}
+            className="btn-block mb-4"
+            variant="dark"
+            onClick={this.resetStats}
         >I quit!! Let's start the whole game over.</Button>
         <StatusModal 
-        show={this.state.showModal}
-        onHide={this.modalClose}
-        onClick={this.modalClose}
-        winStatus={this.state.winStatus}
-        btnText={this.state.btnText}
-        gif={this.state.giphy.url}
+            show={this.state.showModal}
+            onHide={this.modalClose}
+            onClick={this.modalClose}
+            winStatus={this.state.winStatus}
+            btnText={this.state.btnText}
+            gif={this.state.giphy.url}
         />
         <EndModal
-        show={this.state.showModalW}
-        onHide={this.modalCloseW}
-        onClick={this.modalCloseW}
+            show={this.state.showModalW}
+            onHide={this.modalCloseW}
+            onClick={this.modalCloseW}
         />
       </Container>
     );
