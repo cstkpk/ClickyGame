@@ -85,7 +85,7 @@ class App extends Component {
                 waffles.clicked = false;
             })
             // If number of wins is less than 3, continue to next round
-            if (this.state.wins < 1) {
+            if (this.state.wins < 3) {
                 this.setState({
                     wins: this.state.wins + 1,
                     score: 0,
