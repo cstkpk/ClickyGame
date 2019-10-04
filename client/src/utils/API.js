@@ -1,6 +1,7 @@
 import axios from "axios";
 const queryURL = "https://api.giphy.com/v1/gifs/search?q=";
-const queryURL2 = process.env.REACT_APP_GIPHY_KEY + "&limit=10&rating=G"
+// const queryURL2 = process.env.REACT_APP_GIPHY_KEY + "&limit=10&rating=G"
+const queryURL2 = "&api_key=Bm2k4uF8suzONejSbumyYMcY72fyrkOP&limit=10&rating=G"
 // To solve issue accessing environment variables from back end Heroku config vars:
     // Hard code the API key right in here, do a git commit and push to heroku, but don't push to GH
     // The API key will be visible anyway, even if it were working from the config vars, because the code is compiled in build
