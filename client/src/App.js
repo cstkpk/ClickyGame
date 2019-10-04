@@ -135,7 +135,6 @@ class App extends Component {
                             winStatus: "Whomp whomp you lost",
                             btnText: "Try again!"
                         });
-                        // console.log(this.state.data);
                         this.findGIF("sad");
                         this.modalOpen();
                     }
@@ -144,7 +143,6 @@ class App extends Component {
             this.shuffleArray(data);
             // Set this.state.data equal to the new data array
             this.setState({ data });
-            // console.log(this.state.data);
         }
         if (this.state.score === 12) { 
             this.setState({ wins: this.state.wins + 1 });
@@ -182,11 +180,11 @@ class App extends Component {
             // ^^ No idea why. Need to look into this.
             // .then(res => this.setState({ giphy: res.data.data[0].images.fixed_height }))
             .then(res => this.setState({ giphy: res.data.data[Math.floor(Math.random() * 10)].images.fixed_height }))
-            .then(
-                console.log(this.state.giphy),
-                console.log("*************"),
-                console.log(this.state.giphy.url)
-            )
+            // .then(
+            //     console.log(this.state.giphy),
+            //     console.log("*************"),
+            //     console.log(this.state.giphy.url)
+            // )
             .catch(err => console.log(err));
     };
 
