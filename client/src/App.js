@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button, Container, Row } from 'react-bootstrap';
+import { connect } from "react-redux";
+
 import DataCard from "./components/DataCard";
 import Jumbo from "./components/Jumbotron";
 import { StatusModal, EndModal } from "./components/Modals";
@@ -231,4 +233,8 @@ class App extends Component {
   }
 };
 
-export default App;
+const mapStateToProps = state => {
+    return { dummy: state.dummy }
+}
+
+export default connect(mapStateToProps, {})(App);
