@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import "./style.css";
 
+// Modal that shows when you: hit refresh, lose a round, win a round
 function StatusModal(props) {
     return (
         <Modal show={props.show} onHide={props.onHide}>
@@ -21,6 +22,7 @@ function StatusModal(props) {
     );
 };
 
+// Modal that shows up when you: win all levels of the game
 function EndModal(props) {
     return (
         <Modal show={props.show} onHide={props.onHide}>
