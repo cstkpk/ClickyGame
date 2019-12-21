@@ -6,3 +6,10 @@ export const fakeNameHere = (param) => {
         payload: param
     };
 };
+
+export const trackScore = score => {
+    return {
+        type: "TRACK_SCORE",
+        payload: score
+    };
+};
